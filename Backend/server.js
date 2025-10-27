@@ -19,6 +19,9 @@ app.use(cors({
 
 app.use(express.json())
 
+// Serve static files from uploads directory
+app.use('/uploads', express.static('uploads'))
+
 app.get('/', (req,res) => res.send(`Server is Running on port ${process.env.PORT || 5000}`))
 app.use('/api/quote', QuoteRouter)
 app.use('/api/contact', ContactRouter)
